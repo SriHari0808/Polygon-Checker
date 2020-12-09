@@ -3,7 +3,11 @@
 //Date: Dec 11, 2020
 //CSCN71020
 //
-//
+//This is a program made to..
+//take 3 sides lengths and if they form a triangle 
+//the program will also output its 3 angles
+//or the program will collect 4 points given by the user and determine whether 
+//or not the points can create a rectangle if so it will output the perimeter and area
 //
 
 #include <stdio.h>
