@@ -11,8 +11,8 @@ typedef struct {
 
 int analyzeRectangle(point a, point b, point c, point d) {
 
-    int ab_x = a.x - b.x;
-    int ab_y = a.y - b.y;
+    int ab_x = b.x - a.x;
+    int ab_y = b.y - a.y;
     int cd_x = c.x - d.x;
     int cd_y = c.y - d.y;
       
@@ -35,8 +35,8 @@ int analyzeRectangle(point a, point b, point c, point d) {
     }
 
     //determine if ab¡Íac
-    int ac_y = a.y - c.y;
-    int ac_x = a.x - c.x;
+    int ac_y = c.y - a.y;
+    int ac_x = c.x - a.x;
 
     if (ab_x == 0) {
         if (ac_y != 0)
@@ -69,7 +69,7 @@ int Perimeter(point a, point b, point c, point d) {
 int Area(point a, point b, point c) {
     double ab = sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
     double ac = sqrt((a.x - c.x) * (a.x - c.x) + (a.y - c.y) * (a.y - c.y));
-    printf_s("The area is: %.3f\n", ab * ac / 2);
+    printf_s("The area is: %.3f\n", ab * ac);
 
     return 0;
 }
