@@ -1,3 +1,4 @@
+//This file is the library for the main funtcions
 #pragma once
 
 typedef struct {

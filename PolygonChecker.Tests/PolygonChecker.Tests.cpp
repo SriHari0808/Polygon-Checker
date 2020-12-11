@@ -4,6 +4,7 @@
 extern "C" {
 	#include "triangleSolver.h"
 	#include "main.h"
+    #include "rectangleSolver.h"
 }
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -14,57 +15,58 @@ namespace PolygonCheckerTests
 	{
 	public:
 		
-        TEST_METHOD(T007_CheckOfRectangle)
+        TEST_METHOD(T001_IsARectangle_pointaANDbANDcANDd_1)
         {
+            //Assign
             point a, b, c, d;
-            int a.x = 2;
-            int a.y = 1;
-            int b.x = 5;
-            int b.y = 4;
-            int c.x = 4;
-            int c.y = -1;
-            int d.x = 7;
-            int d.y = 2;
+            a.x = 2;
+            a.y = 1;
+            b.x = 5;
+            b.y = 4;
+            c.x = 4;
+            c.y = -1;
+            d.x = 7;
+            d.y = 2;
+            const int EXPECTED = 1;
+            
+            //Act
+            int Result = analyzeRectangle(a, b, c, d);
 
-
-            char* Result = analyzeRectangle(point a, point b, point c, point d);
-
-            Assert::AreEqual("These 4 points can form an rectangle.", Result);
-
-            int* ResultArea = Area(point a, point b, point c, point d);
-
-            Assert::AreEqual(6, ResultArea);
-
+            //Assert
+            Assert::AreEqual(EXPECTED, Result);
         }
 
-        TEST_METHOD(T008_CheckOfFaileRectangle)
+        TEST_METHOD(T002_CheckOfFaileRectangle_pointaANDbANDcANDd_1)
         {
-            int a.x = 3;
-            int a.y = 4;
-            int b.x = 5;
-            int b.y = 6;
-            int c.x = 7;
-            int c.y = 8;
-            int d.x = 9;
-            int d.y = 2;
+            point a, b, c, d;
+            a.x = 3;
+            a.y = 4;
+            b.x = 5;
+            b.y = 6;
+            c.x = 7;
+            c.y = 8;
+            d.x = 9;
+            d.y = 2;
+            const int EXPECTED = 0;
 
-            char* Result = analyzeRectangle(point a, point b, point c, point d);
+            int Result = analyzeRectangle(a, b, c, d);
 
-            Assert::AreEqual("These 4 points can not form an rectangle.", Result);
+            Assert::AreEqual(EXPECTED, Result);
 
         }
         TEST_METHOD(T009_CheckOfPerimeter)
         {
-            int a.x = 5;
-            int a.y = 23;
-            int b.x = 12;
-            int b.y = 21;
-            int c.x = 65;
-            int c.y = 34;
-            int d.x = 12;
-            int d.y = 43;
+            point a, b, c, d;
+            a.x = 5;
+            a.y = 23;
+            b.x = 12;
+            b.y = 21;
+            c.x = 65;
+            c.y = 34;
+            d.x = 12;
+            d.y = 43;
 
-            int* ResultPerimeter = Perimeter(point a, point b, point c, point d);
+            int ResultPerimeter = Perimeter(a, b, c, d);
 
             Assert::AreEqual(137.160, ResultPerimeter);
 
