@@ -1,3 +1,5 @@
+//This .h file holds the library used to solve rectangles
+
 #pragma once
 typedef struct {
 

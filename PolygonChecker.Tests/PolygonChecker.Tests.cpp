@@ -1,3 +1,5 @@
+//This Unit Test project tests all the functions used in PolygonChecker
+
 #include "pch.h"
 #include "CppUnitTest.h"
 
@@ -36,8 +38,9 @@ namespace PolygonCheckerTests
             Assert::AreEqual(EXPECTED, Result);
         }
 
-        TEST_METHOD(T002_CheckOfFaileRectangle_pointaANDbANDcANDd_1)
+        TEST_METHOD(T002_CheckOfFaileRectangle_pointaANDbANDcANDd_0)
         {
+            //Assign
             point a, b, c, d;
             a.x = 3;
             a.y = 4;
@@ -49,13 +52,17 @@ namespace PolygonCheckerTests
             d.y = 2;
             const int EXPECTED = 0;
 
+            //Act
             int Result = analyzeRectangle(a, b, c, d);
 
+            //Assert
             Assert::AreEqual(EXPECTED, Result);
 
         }
-        TEST_METHOD(T009_CheckOfPerimeter)
+
+        TEST_METHOD(T003_CheckOfPerimeter_pointaANDbANDcANDd_137point160)//point = '.'
         {
+            //Assign
             point a, b, c, d;
             a.x = 5;
             a.y = 23;
@@ -65,26 +72,34 @@ namespace PolygonCheckerTests
             c.y = 34;
             d.x = 12;
             d.y = 43;
+            const float EXPECTED = 137.160;
 
-            int ResultPerimeter = Perimeter(a, b, c, d);
+            //Act
+            float ResultPerimeter = Perimeter(a, b, c, d);
 
-            Assert::AreEqual(137.160, ResultPerimeter);
-
+            //Assert
+            Assert::AreEqual(EXPECTED, ResultPerimeter);
         }
-        TEST_METHOD(T0010_CheckOfRectangleArea)
+
+        TEST_METHOD(T004_CheckOfRectangleArea_pointaANDbANDcANDd_1)
         {
-            int a.x = 0;
-            int a.y = 0;
-            int b.x = 0;
-            int b.y = 1;
-            int c.x = 1;
-            int c.y = 0;
-            int d.x = 1;
-            int d.y = 1;
+            //Assign
+            point a, b, c, d;
+            a.x = 0;
+            a.y = 0;
+            b.x = 0;
+            b.y = 1;
+            c.x = 1;
+            c.y = 0;
+            d.x = 1;
+            d.y = 1;
+            const int EXPECTED = 1;
 
-            int* ResultArea = Area(point a, point b, point c, point d);
+            //Act
+            int ResultArea = Area(a, b, c);
 
-            Assert::AreEqual(0.5, ResultArea);
+            //Assert
+            Assert::AreEqual(EXPECTED, ResultArea);
 
         }
 		

@@ -1,3 +1,5 @@
+//This file holds the definitions for the functions in rectangleSolver.c
+
 #include <stdio.h>
 #include <math.h>
 
