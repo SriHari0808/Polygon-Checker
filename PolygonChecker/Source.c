@@ -32,11 +32,13 @@ int main() {
 		switch (shapeChoice)
 		{
 		case 1://triangle 
-			printf_s("Triangle selected.\n");
+			printf_s("\t$$$ TRIANGLE SELECTED $$$.\n");
 			int triangleSides[3] = { 0, 0, 0 };
 			int* triangleSidesPtr = getTriangleSides(triangleSides);
 			//printf_s("! %d\n", triangleSidesPtr[0]);
-			analyzeTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
+			char* result = analyzeTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
+			printf_s("$ %s\n", result);
+			int* angles = InnerTriAngles(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
 			break;
 
 		case 2://rectangle

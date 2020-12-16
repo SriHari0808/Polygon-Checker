@@ -32,12 +32,15 @@ void printRectanglePoints()
 	printf_s(" C********************D\n");
 }
 
-int* getTriangleSides(int* triangleSides) {
-	printf_s("Enter the three sides of the triangle: ");
+int* getTriangleSides(int* triangleSides)
+{
+	printf_s("\n$$$ ENTER THE SIDES OF THE TRIANGLE: \n");
 	for (int i = 0; i < 3; i++)
 	{
+		printf("$ Side %d: ", i + 1);
 		scanf_s("%d", &triangleSides[i]);
 	}
 	return triangleSides;
 }
+
 

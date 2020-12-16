@@ -142,11 +142,13 @@
     <ClCompile Include="main.c" />
     <ClCompile Include="rectangleSolver.c" />
     <ClCompile Include="Source.c" />
+    <ClCompile Include="TriAngles.c" />
     <ClCompile Include="triangleSolver.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h" />
     <ClInclude Include="rectangleSolver.h" />
+    <ClInclude Include="TriAngles.h" />
     <ClInclude Include="triangleSolver.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

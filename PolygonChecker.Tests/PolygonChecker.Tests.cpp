@@ -13,7 +13,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace PolygonCheckerTests
 {
-	TEST_CLASS(PolygonCheckerTests)
+	TEST_CLASS(Rectangle_Points)
 	{
 	public:
 		
@@ -103,5 +103,94 @@ namespace PolygonCheckerTests
 
         }
 		
+	};
+	TEST_CLASS(Type_Of_Triangle)
+	{
+	public:
+
+		TEST_METHOD(T001_TypeOfTriangle_ZeroAndMinusTwoAndFour_NotATraingle)
+		{
+			//Arrange
+			int side1 = 0;
+			int side2 = -2;
+			int side3 = 4;
+
+			//Act
+			char* result = analyzeTriangle(side1, side2, side3);
+
+			//Assert
+			Assert::AreEqual("Not a triangle", result);
+		}
+
+		TEST_METHOD(T002_TypeOfTriangle_FiveAndFiveAndFive_EquilateralTriangle)
+		{
+			//Arrange
+			int side1 = 5;
+			int side2 = 5;
+			int side3 = 5;
+
+			//Act
+			char* result = analyzeTriangle(side1, side2, side3);
+
+			//Assert
+			Assert::AreEqual("Equilateral triangle", result);
+		}
+
+		TEST_METHOD(T003_TypeOfTriangle_EightAndEightAndFive_IsoscelesTriangle)
+		{
+			//Arrange
+			int side1 = 8;
+			int side2 = 8;
+			int side3 = 5;
+
+			//Act
+			char* result = analyzeTriangle(side1, side2, side3);
+
+			//Assert
+			Assert::AreEqual("Isosceles triangle", result);
+		}
+
+
+		TEST_METHOD(T004_TypeOfTriangle_SevenAndFiveAndSeven_IsoscelesTriangle)
+		{
+			//Arrange
+			int side1 = 7;
+			int side2 = 5;
+			int side3 = 7;
+
+			//Act
+			char* result = analyzeTriangle(side1, side2, side3);
+
+			//Assert
+			Assert::AreEqual("Isosceles triangle", result);
+		}
+
+		TEST_METHOD(T005_TypeOfTriangle_FourAndFiveAndFive_IsoscelesTriangle)
+		{
+			//Arrange
+			int side1 = 4;
+			int side2 = 5;
+			int side3 = 5;
+
+			//Act
+			char* result = analyzeTriangle(side1, side2, side3);
+
+			//Assert
+			Assert::AreEqual("Isosceles triangle", result);
+		}
+
+		TEST_METHOD(T006_TypeOfTriangle_TenAndFiveAndSix_ScaleneTriangle)
+		{
+			//Arrange
+			int side1 = 10;
+			int side2 = 5;
+			int side3 = 6;
+
+			//Act
+			char* result = analyzeTriangle(side1, side2, side3);
+
+			//Assert
+			Assert::AreEqual("Scalene triangle", result);
+		}
 	};
 }
