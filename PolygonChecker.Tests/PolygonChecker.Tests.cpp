@@ -17,91 +17,179 @@ namespace PolygonCheckerTests
 	{
 	public:
 		
-        TEST_METHOD(T001_IsARectangle_pointaANDbANDcANDd_1)
-        {
-            //Assign
-            point a, b, c, d;
-            a.x = 2;
-            a.y = 1;
-            b.x = 5;
-            b.y = 4;
-            c.x = 4;
-            c.y = -1;
-            d.x = 7;
-            d.y = 2;
-            const int EXPECTED = 1;
-            
-            //Act
-            int Result = analyzeRectangle(a, b, c, d);
+		TEST_METHOD(T001_IsARectangle_pointaANDbANDcANDd_1)
+		{
+			//Assign
+			point a, b, c, d;
+			a.x = 2;
+			a.y = 1;
+			b.x = 5;
+			b.y = 4;
+			c.x = 4;
+			c.y = -1;
+			d.x = 7;
+			d.y = 2;
+			const int EXPECTED = 1;
 
-            //Assert
-            Assert::AreEqual(EXPECTED, Result);
-        }
+			//Act
+			int Result = analyzeRectangle(a, b, c, d);
 
-        TEST_METHOD(T002_CheckOfFaileRectangle_pointaANDbANDcANDd_0)
-        {
-            //Assign
-            point a, b, c, d;
-            a.x = 3;
-            a.y = 4;
-            b.x = 5;
-            b.y = 6;
-            c.x = 7;
-            c.y = 8;
-            d.x = 9;
-            d.y = 2;
-            const int EXPECTED = 0;
+			//Assert
+			Assert::AreEqual(EXPECTED, Result);
+		}
 
-            //Act
-            int Result = analyzeRectangle(a, b, c, d);
+		TEST_METHOD(T002_CheckOfFaileRectangle_pointaANDbANDcANDd_0)
+		{
+			//Assign
+			point a, b, c, d;
+			a.x = 3;
+			a.y = 4;
+			b.x = 5;
+			b.y = 6;
+			c.x = 7;
+			c.y = 8;
+			d.x = 9;
+			d.y = 2;
+			const int EXPECTED = 0;
 
-            //Assert
-            Assert::AreEqual(EXPECTED, Result);
+			//Act
+			int Result = analyzeRectangle(a, b, c, d);
 
-        }
+			//Assert
+			Assert::AreEqual(EXPECTED, Result);
 
-        TEST_METHOD(T003_CheckOfPerimeter_pointaANDbANDcANDd_137point160)//point = '.'
-        {
-            //Assign
-            point a, b, c, d;
-            a.x = 5;
-            a.y = 23;
-            b.x = 12;
-            b.y = 21;
-            c.x = 65;
-            c.y = 34;
-            d.x = 12;
-            d.y = 43;
-            const float EXPECTED = 137.160;
+		}
 
-            //Act
-            float ResultPerimeter = Perimeter(a, b, c, d);
+		TEST_METHOD(T003_CheckOfPerimeter_pointaANDbANDcANDd_137point160)//point = '.'
+		{
+			//Assign
+			point a, b, c, d;
+			a.x = 5;
+			a.y = 23;
+			b.x = 12;
+			b.y = 21;
+			c.x = 65;
+			c.y = 34;
+			d.x = 12;
+			d.y = 43;
+			const float EXPECTED = 144.039;
 
-            //Assert
-            Assert::AreEqual(EXPECTED, ResultPerimeter);
-        }
+			//Act
+			float ResultPerimeter = Perimeter(a, b, c, d);
 
-        TEST_METHOD(T004_CheckOfRectangleArea_pointaANDbANDcANDd_1)
-        {
-            //Assign
-            point a, b, c, d;
-            a.x = 0;
-            a.y = 0;
-            b.x = 0;
-            b.y = 1;
-            c.x = 1;
-            c.y = 0;
-            d.x = 1;
-            d.y = 1;
-            const int EXPECTED = 1;
+			//Assert
+			Assert::AreEqual(EXPECTED, ResultPerimeter);
+		}
 
-            //Act
-            int ResultArea = Area(a, b, c);
+		TEST_METHOD(T004_CheckOfRectangleArea_pointaANDbANDcANDd_1)
+		{
+			//Assign
+			point a, b, c, d;
+			a.x = 0;
+			a.y = 0;
+			b.x = 0;
+			b.y = 1;
+			c.x = 1;
+			c.y = 0;
+			d.x = 1;
+			d.y = 1;
+			const int EXPECTED = 1;
 
-            //Assert
-            Assert::AreEqual(EXPECTED, ResultArea);
+			//Act
+			int ResultArea = Area(a, b, c);
 
-        }
+			//Assert
+			Assert::AreEqual(EXPECTED, ResultArea);
+
+		}
+		TEST_METHOD(T007_IsNotRectangle_pointaANDbANDcANDd_0)
+		{
+			//Assign
+			point a, b, c, d;
+			a.x = 2;
+			a.y = 1;
+			b.x = 2;
+			b.y = 3;
+			c.x = 3;
+			c.y = 5;
+			d.x = 4;
+			d.y = 7;
+			//test case if (ab_x == 0 || cd_x == 0) and (ab_x != cd_x)
+			const int EXPECTED = 0;
+
+			//Act
+			int Result = analyzeRectangle(a, b, c, d);
+
+			//Assert
+			Assert::AreEqual(EXPECTED, Result);
+
+		}
+		TEST_METHOD(T008_IsNotRectangle_pointaANDbANDcANDd_0)
+		{
+			//Assign
+			point a, b, c, d;
+			a.x = 0;
+			a.y = 1;
+			b.x = 1;
+			b.y = 3;
+			c.x = 3;
+			c.y = 9;
+			d.x = -1;
+			d.y = 5;
+			//test case if (ab_y / ab_x != cd_y / cd_x)
+			const int EXPECTED = 0;
+
+			//Act
+			int Result = analyzeRectangle(a, b, c, d);
+
+			//Assert
+			Assert::AreEqual(EXPECTED, Result);
+
+		}
+		TEST_METHOD(T009_IsNotRectangle_pointaANDbANDcANDd_0)
+		{
+			//Assign
+			point a, b, c, d;
+			a.x = 0;
+			a.y = 1;
+			b.x = 1;
+			b.y = 3;
+			c.x = 3;
+			c.y = 9;
+			d.x = -1;
+			d.y = 5;
+			//test case if (ab_y / ab_x != cd_y / cd_x)
+			const int EXPECTED = 0;
+
+			//Act
+			int Result = analyzeRectangle(a, b, c, d);
+
+			//Assert
+			Assert::AreEqual(EXPECTED, Result);
+
+		}
+		TEST_METHOD(T0010_IsNotRectangle_pointaANDbANDcANDd_0)
+		{
+			//Assign
+			point a, b, c, d;
+			a.x = 34;
+			a.y = 23;
+			b.x = 45;
+			b.y = 23;
+			c.x = 87;
+			c.y = 54;
+			d.x = -23;
+			d.y = 12;
+			//test case if (ab_y * ab_y + ab_x * ab_x != cd_y * cd_y + cd_x * cd_x)
+			const int EXPECTED = 0;
+
+			//Act
+			int Result = analyzeRectangle(a, b, c, d);
+
+			//Assert
+			Assert::AreEqual(EXPECTED, Result);
+
+		}
 		
 	};
 	TEST_CLASS(Type_Of_Triangle)

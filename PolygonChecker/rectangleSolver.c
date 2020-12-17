@@ -15,8 +15,8 @@ int analyzeRectangle(point a, point b, point c, point d) {
 
     int ab_x = b.x - a.x;
     int ab_y = b.y - a.y;
-    int cd_x = c.x - d.x;
-    int cd_y = c.y - d.y;
+    int cd_x = d.x - c.x;
+    int cd_y = d.y - c.y;
       
     //determine if ab//cd.
     if (ab_x == 0 || cd_x == 0) {
@@ -31,7 +31,7 @@ int analyzeRectangle(point a, point b, point c, point d) {
         }
     }
     
-    //determine if ab=cd
+    //determine if ab!=cd
     if (ab_y * ab_y + ab_x * ab_x != cd_y * cd_y + cd_x * cd_x) {
         return 0;
     }

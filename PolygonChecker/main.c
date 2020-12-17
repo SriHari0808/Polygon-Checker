@@ -1,5 +1,5 @@
 //This file contains the definitions for the main program's functions
-
+#include <stdio.h>
 void printWelcome() {
 	printf_s("\n");
 	printf_s(" **********************\n");
