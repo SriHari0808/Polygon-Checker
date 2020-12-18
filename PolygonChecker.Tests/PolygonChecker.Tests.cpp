@@ -336,7 +336,7 @@ namespace PolygonCheckerTests
 			Assert::AreEqual(Expected_Angle3, angle3, tolerace);
 		}
 
-		TEST_METHOD(T003_Sides_2_3_2_Angle_41_97_41)
+		TEST_METHOD(T003_Sides_2_3_2_Angle_41p430626_97p230057_41p430626)    //p refers to the decimal point(.)
 		{
 			//Arrange
 			int side1 = 2;
@@ -357,6 +357,7 @@ namespace PolygonCheckerTests
 			Assert::AreEqual(Expected_Angle2, angle2);
 			Assert::AreEqual(Expected_Angle3, angle3);
 		}
+
 
 		TEST_METHOD(T004_Sides_24_19_24_Angle_66p715866_46p635914_66p715866)
 		{
