@@ -8,6 +8,6 @@ typedef struct {
 
 }point;
 
-int analyzeRectangle(point, point, point, point);
-int Perimeter(point, point, point, point);
-int Area(point, point, point);
+int analyzeRectangle(point a, point b, point c, point d);
+double Perimeter(point a, point b, point c, point d);
+double Area(point a, point b, point c);

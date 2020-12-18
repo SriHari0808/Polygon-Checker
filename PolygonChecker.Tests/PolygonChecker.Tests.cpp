@@ -7,6 +7,10 @@ extern "C" {
 	#include "triangleSolver.h"
 	#include "main.h"
     #include "rectangleSolver.h"
+    #include"TriAngles.h"
+    #include"rectangleSolver.c"
+    #include"TriAngles.c"
+    #include"triangleSolver.c"
 }
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -72,13 +76,14 @@ namespace PolygonCheckerTests
 			c.y = 34;
 			d.x = 12;
 			d.y = 43;
-			const float EXPECTED = 144.039;
+			const double EXPECTED = 144.039;
+			double tolerance = 0.039;
 
 			//Act
-			float ResultPerimeter = Perimeter(a, b, c, d);
+			double ResultPerimeter = Perimeter(a, b, c, d);
 
 			//Assert
-			Assert::AreEqual(EXPECTED, ResultPerimeter);
+			Assert::AreEqual(EXPECTED, ResultPerimeter, tolerance);
 		}
 
 		TEST_METHOD(T004_CheckOfRectangleArea_pointaANDbANDcANDd_1)
@@ -93,7 +98,7 @@ namespace PolygonCheckerTests
 			c.y = 0;
 			d.x = 1;
 			d.y = 1;
-			const int EXPECTED = 1;
+			const int EXPECTED = 1.000;
 
 			//Act
 			int ResultArea = Area(a, b, c);
@@ -115,10 +120,10 @@ namespace PolygonCheckerTests
 			d.x = 4;
 			d.y = 7;
 			//test case if (ab_x == 0 || cd_x == 0) and (ab_x != cd_x)
-			const int EXPECTED = 0;
+			const double EXPECTED = 0;
 
 			//Act
-			int Result = analyzeRectangle(a, b, c, d);
+			double Result = analyzeRectangle(a, b, c, d);
 
 			//Assert
 			Assert::AreEqual(EXPECTED, Result);
@@ -281,4 +286,171 @@ namespace PolygonCheckerTests
 			Assert::AreEqual("Scalene triangle", result);
 		}
 	};
+	
+	
+	TEST_CLASS(Angle_Of_Triangle)
+	{
+	public:
+
+		TEST_METHOD(T001_Sides_13_13_13_Angle_60_60_60)
+		{
+			//Arrange
+			int side1 = 13;
+			int side2 = 13;
+			int side3 = 13;
+
+			float Expected_Angle1 = 60.000000;
+			float Expected_Angle2 = 60.000000;
+			float Expected_Angle3 = 60.000000;
+			float tolerace = 0.030434;
+			// Act
+			float angle1 = Angle_A(side1, side2, side3);
+			float angle2 = Angle_B(side1, side2, side3);
+			float angle3 = Angle_C(side1, side2, side3);
+
+			// Assert
+			Assert::AreEqual(Expected_Angle1, angle1, tolerace);
+			Assert::AreEqual(Expected_Angle2, angle2, tolerace);
+			Assert::AreEqual(Expected_Angle3, angle3, tolerace);
+		}
+
+		TEST_METHOD(T002_Sides_2_2_2_Angle_60_60_60)
+		{
+			//Arrange
+			int side1 = 2;
+			int side2 = 2;
+			int side3 = 2;
+
+			float Expected_Angle1 = 60.000000;
+			float Expected_Angle2 = 60.000000;
+			float Expected_Angle3 = 60.000000;
+			float tolerace = 0.030434;
+			// Act
+			float angle1 = Angle_A(side1, side2, side3);
+			float angle2 = Angle_B(side1, side2, side3);
+			float angle3 = Angle_C(side1, side2, side3);
+
+			// Assert
+			Assert::AreEqual(Expected_Angle1, angle1, tolerace);
+			Assert::AreEqual(Expected_Angle2, angle2, tolerace);
+			Assert::AreEqual(Expected_Angle3, angle3, tolerace);
+		}
+
+		TEST_METHOD(T003_Sides_2_3_2_Angle_41_97_41)
+		{
+			//Arrange
+			int side1 = 2;
+			int side2 = 3;
+			int side3 = 2;
+
+			float Expected_Angle1 = 41.430626;
+			float Expected_Angle2 = 97.230057;
+			float Expected_Angle3 = 41.430626;
+
+			// Act
+			float angle1 = Angle_A(side1, side2, side3);
+			float angle2 = Angle_B(side1, side2, side3);
+			float angle3 = Angle_C(side1, side2, side3);
+
+			// Assert
+			Assert::AreEqual(Expected_Angle1, angle1);
+			Assert::AreEqual(Expected_Angle2, angle2);
+			Assert::AreEqual(Expected_Angle3, angle3);
+		}
+
+		TEST_METHOD(T004_Sides_24_19_24_Angle_66_46_66)
+		{
+			//Arrange
+			int side1 = 24;
+			int side2 = 19;
+			int side3 = 24;
+
+			float Expected_Angle1 = 66.715866;
+			float Expected_Angle2 = 46.635914;
+			float Expected_Angle3 = 66.715866;
+			float tolerance = 0.030434;
+
+			// Act
+			float angle1 = Angle_A(side1, side2, side3);
+			float angle2 = Angle_B(side1, side2, side3);
+			float angle3 = Angle_C(side1, side2, side3);
+
+			// Assert
+			Assert::AreEqual(Expected_Angle1, angle1, tolerance);
+			Assert::AreEqual(Expected_Angle2, angle2, tolerance);
+			Assert::AreEqual(Expected_Angle3, angle3, tolerance);
+		}
+
+		TEST_METHOD(T005_Sides_12_14_13_angle_52_68_13)
+		{
+			//Arrange
+			int side1 = 12;
+			int side2 = 14;
+			int side3 = 13;
+
+			float Expected_Angle1 = 52.643490;
+			float Expected_Angle2 = 68.010170;
+			float Expected_Angle3 = 59.437645;
+
+			// Act
+			float angle1 = Angle_A(side1, side2, side3);
+			float angle2 = Angle_B(side1, side2, side3);
+			float angle3 = Angle_C(side1, side2, side3);
+
+			// Assert
+			Assert::AreEqual(Expected_Angle1, angle1);
+			Assert::AreEqual(Expected_Angle2, angle2);
+			Assert::AreEqual(Expected_Angle3, angle3);
+		}
+
+
+
+		TEST_METHOD(T006_Sides_3_6_4_Angle_26_62_36)
+		{
+			//Arrange
+			int side1 = 3;
+			int side2 = 6;
+			int side3 = 4;
+
+			float Expected_Angle1 = 26.397715;
+			float Expected_Angle2 = 117.339096;
+			float Expected_Angle3 = 36.354488;
+
+
+			// Act
+			float angle1 = Angle_A(side1, side2, side3);
+			float angle2 = Angle_B(side1, side2, side3);
+			float angle3 = Angle_C(side1, side2, side3);
+
+			float tolerance = 0.720383;
+			// Assert
+			Assert::AreEqual(Expected_Angle1, angle1);
+			Assert::AreEqual(Expected_Angle2, angle2);
+			Assert::AreEqual(Expected_Angle3, angle3);
+		}
+
+		TEST_METHOD(T007_Sides_20_18_22_Angle_36_62_26)
+		{
+			//Arrange
+			int side1 = 20;
+			int side2 = 18;
+			int side3 = 22;
+
+			float Expected_Angle1 = 59.022343;
+			float Expected_Angle2 = 50.504406;
+			float Expected_Angle3 = 70.564552;
+
+			// Act
+			float angle1 = Angle_A(side1, side2, side3);
+			float angle2 = Angle_B(side1, side2, side3);
+			float angle3 = Angle_C(side1, side2, side3);
+
+			// Assert
+			Assert::AreEqual(Expected_Angle1, angle1);
+			Assert::AreEqual(Expected_Angle2, angle2);
+			Assert::AreEqual(Expected_Angle3, angle3);
+		}
+
+	};
 }
+

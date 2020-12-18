@@ -2,14 +2,8 @@
 
 #include <stdio.h>
 #include <math.h>
+#include"rectangleSolver.h"
 
-
-typedef struct {
-
-    double x;
-    double y;
-
-}point;
 
 int analyzeRectangle(point a, point b, point c, point d) {
 
@@ -57,21 +51,23 @@ int analyzeRectangle(point a, point b, point c, point d) {
     return 1;
 }
 
-int Perimeter(point a, point b, point c, point d) {
+double Perimeter(point a, point b, point c, point d) 
+{
 
     double ab = sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
     double ac = sqrt((a.x - c.x) * (a.x - c.x) + (a.y - c.y) * (a.y - c.y));
     double cd = sqrt((c.x - d.x) * (c.x - d.x) + (c.y - d.y) * (c.y - d.y));
     double db = sqrt((d.x - b.x) * (d.x - b.x) + (d.y - b.y) * (d.y - b.y));
-    printf_s("The perimeter is: %.3f\n", ab + ac+ cd+ db);
+    printf_s("$$$ The perimeter is: %.3f\n", ab + ac+ cd+ db);
     
-    return 0;
+    return ab + ac + cd + db;
 }
 
-int Area(point a, point b, point c) {
+double Area(point a, point b, point c) 
+{
     double ab = sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
     double ac = sqrt((a.x - c.x) * (a.x - c.x) + (a.y - c.y) * (a.y - c.y));
-    printf_s("The area is: %.3f\n", ab * ac);
+    printf_s("$$$ The area is: %.3f\n", ab * ac);
 
-    return 0;
+    return ab * ac;
 }
