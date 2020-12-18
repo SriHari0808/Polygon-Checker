@@ -358,7 +358,7 @@ namespace PolygonCheckerTests
 			Assert::AreEqual(Expected_Angle3, angle3);
 		}
 
-		TEST_METHOD(T004_Sides_24_19_24_Angle_66_46_66)
+		TEST_METHOD(T004_Sides_24_19_24_Angle_66p715866_46p635914_66p715866)
 		{
 			//Arrange
 			int side1 = 24;
@@ -381,7 +381,7 @@ namespace PolygonCheckerTests
 			Assert::AreEqual(Expected_Angle3, angle3, tolerance);
 		}
 
-		TEST_METHOD(T005_Sides_12_14_13_angle_52_68_13)
+		TEST_METHOD(T005_Sides_12_14_13_angle_52p643490_68p010170_59p437645)
 		{
 			//Arrange
 			int side1 = 12;
@@ -405,7 +405,7 @@ namespace PolygonCheckerTests
 
 
 
-		TEST_METHOD(T006_Sides_3_6_4_Angle_26_62_36)
+		TEST_METHOD(T006_Sides_3_6_4_Angle_26p397715_117p339096_36p354488)
 		{
 			//Arrange
 			int side1 = 3;
@@ -429,7 +429,7 @@ namespace PolygonCheckerTests
 			Assert::AreEqual(Expected_Angle3, angle3);
 		}
 
-		TEST_METHOD(T007_Sides_20_18_22_Angle_36_62_26)
+		TEST_METHOD(T007_Sides_20_18_22_Angle_59p022343_50p504406_70p564552)
 		{
 			//Arrange
 			int side1 = 20;
@@ -452,5 +452,6 @@ namespace PolygonCheckerTests
 		}
 
 	};
+		
 }
 
