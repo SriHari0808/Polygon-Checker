@@ -9,7 +9,7 @@ char* analyzeTriangle(int side1, int side2, int side3)
 	printf("\n\t$$$ TYPE OF TRIANGLE $$$\n ");
 	char* result = "";
 
-	if (side1 <= 0 || side2 <= 0 || side3 <= 0)
+	if ((side1 <= 0 || side2 <= 0 || side3 <= 0) && ((side1 + side2 <= side3) || (side1 + side3 <= side2) || (side2 + side3 <= side1)))
 	{
 		result = "Not a triangle";
 	}
